@@ -12,13 +12,15 @@
 - tracked - отслеживаемый. Untracked становится tracked после выполнения команды `git add`
 - modified - изменённый. Состояние modified означает, что Git сравнил содержимое файла с последней сохранённой версией и нашёл отличия.
 
+#### Жизненный цикл файла в Git
+
 ```mermaid
 graph LR;
     untracked -- "git add" --> staged/tracked;
-    staged/tracked    -- "git commit"     --> tracked(comitted);
+    staged/tracked    -- "git commit"     --> tracked/comitted;
     staged/tracked    -- "изменения"     --> modified/tracked;
     modified/tracked    -- "git add"     --> staged/tracked;
-    tracked(comitted)    -- "изменения"     --> modified/tracked;
+    tracked/comitted    -- "изменения"     --> modified/tracked;
 
 %% жизненный цикл файла в Git
 ```
@@ -32,6 +34,10 @@ graph LR;
 ## Делаем первый коммит
 - коммит можно сделать с помощью команды `git commit`
 - ключ `-m` позволяет присвоить коммиту сообщение
+- существуют разные подходы к описанию коммита, но все они включают в себя эти принципы: 
+    *сообщение коммита легко читается;
+    *оно информативное;
+    *все сообщения оформлены в одном стиле.
 ---
 ## Просматриваем историю коммитов (лог)
 - используйте команду `git log` чтобы посмотреть сделанные ранее коммиты
